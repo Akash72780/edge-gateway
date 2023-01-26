@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}Login
+{% block body %}
+
+<div class="container text-center">
+    <main class="form-signin w-25 m-auto py-5">
+        <form action={% url 'home' %} method="post">
+            {% csrf_token %}
+            <h1 class="display-5 fw-bold">GE hospital</h1>
+          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" name="userid" placeholder="Enter user id" required>
+            <label for="floatingInput">User Id</label>
+          </div>
+          <div class="form-floating py-1">
+            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+            <label for="floatingPassword">Password</label>
+          </div>
+
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> {{msg}}
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        </form>
+      </main>
+</div>
+
+{% endblock body %}
+
+

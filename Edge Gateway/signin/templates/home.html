@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Edge Gateway entry{% endblock title %}
+{% block body %}
+
+<div class="container text-center">
+    
+  <main class="form-signin w-25 m-auto py-5">
+    <form action={% url 'fields_added' %} method="post">
+      {% csrf_token %}
+      <h1 class="display-5 fw-bold">GE hospital</h1>
+      <h1 class="h3 mb-3 fw-normal">Enter required details</h1>
+  
+      <div class="form-floating">
+          <input type="text" class="form-control" name="p_server" id="p_server" required minlength="7" maxlength="15" size="15" pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" placeholder="xxx.xxx.xxx.xxx"/>
+          <label for="p_server" for="p_server">Proxy server/URL</label>
+        </div>
+        <div class="form-floating py-1">
+          <input type="text" class="form-control" id="p_port" name="p_port" maxlength="5" minlength="1" required placeholder="xxxxx">
+          <label for="p_port" for="p_port">Port Number</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="checked"> Checked & Accepted
+          </label>
+        </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+    </form>
+  </main>
+</div>
+{% endblock body %}
